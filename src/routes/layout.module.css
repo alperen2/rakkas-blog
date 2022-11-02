@@ -1,0 +1,28 @@
+.layout {
+    background-color: #f0f2f5;
+}
+
+.header {
+    background: rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+.contentLayout {
+    width: 60%;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    margin-top: 74px;
+    justify-content: space-between;
+
+}
+
+.sider {
+    background: none;
+}
