@@ -2,7 +2,7 @@ import { UserOutlined } from "@ant-design/icons";
 import { Avatar, Card } from "antd";
 import Meta from "antd/lib/card/Meta";
 import React from "react";
-import { user } from "src/mockData"
+import { user } from "src/Data"
 
 type UserCard = {
     avatar: string,

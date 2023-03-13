@@ -1,13 +1,13 @@
 import { Head, Layout } from "rakkasjs"
 import { Badge, Button, Col, Image, Row } from 'antd';
 import { Layout as AntLayout } from "antd";
-import 'antd/dist/antd.css';
+import 'antd/dist/reset.css';
 import css from "./layout.module.css";
 import Search from "antd/lib/input/Search";
 import Sider from "antd/lib/layout/Sider";
 import HomeMenu from "src/components/HomeMenu";
 import UserCard from "src/components/UserCard";
-import { user } from "src/mockData";
+import { user } from "src/Data";
 import { NotificationOutlined } from "@ant-design/icons";
 
 const { Header, Footer } = AntLayout;
@@ -20,10 +20,10 @@ const MainLayout: Layout = ({ children }) => (
             <Header className={css.header}>
                 <Row justify="space-between" style={{ width: "60%" }}>
                     <Col>
-                        <Image src="../../public/images/logo.png" width={60} />
+                        <Image src="/images/logo.png" preview={false} width={60} />
                     </Col>
                     <Col style={{ display: "flex", alignItems: "center" }}>
-                        <Search size="large" style={{ width: "800px" }} placeholder="Search an article" />
+                        <Search size="large" style={{ width: "600px" }} placeholder="Search an article" />
                     </Col>
                     <Col>
                         <Badge count={5}>
@@ -34,7 +34,7 @@ const MainLayout: Layout = ({ children }) => (
             </Header>
             <AntLayout className={css.contentLayout} hasSider>
                 {children}
-                <Sider className={css.sider} width={250} theme="light">
+                <Sider className={css.sider} width={300} theme="light">
                     <UserCard {...user} />
                     <HomeMenu />
                 </Sider>

@@ -4,22 +4,26 @@ import { Avatar, Button, Card, Col, Image, Row, Tag, Typography } from "antd"
 import React from "react"
 import css from "./postCard.module.css";
 const { Title, Text } = Typography;
+import moment from 'moment';
+
+
 
 type PostCard = {
     image?: string,
     title: string,
-    comment: number,
-    like: number
-    tags?: Array<String>,
+    comment?: number,
+    like?: number
+    postTags?: { tags: { name: string}}[],
     date: string,
-    author: string,
+    // author: string,
 }
 
 const PostCard: React.FC<PostCard> = (props) => {
+    console.log(props)
     return <Card className={css.card} bodyStyle={{ padding: 10 }}>
         <Row style={{ marginBottom: 10 }}>
             <Col span={24}>
-                <Image preview={false} src="https://picsum.photos/700/300" />
+                <Image preview={false} src={`public/images/uploads/${props.image}`} />
             </Col>
         </Row>
         <Row style={{ padding: 10 }}>
@@ -28,13 +32,13 @@ const PostCard: React.FC<PostCard> = (props) => {
             </Col>
             <Col>
                 <Text>Alperen Durmuş</Text> <br />
-                <Text type="secondary">Oct 25</Text>
+                <Text type="secondary">{moment(props.date).format('MMM DD')}</Text>
             </Col>
         </Row>
         <Row gutter={[0, 20]} style={{ padding: "10px 0" }}>
             <Col offset={2} span={22}>
                 <Title style={{ marginBottom: 0 }} level={3}> {props.title}</Title>
-                {props.tags?.map(tag => <Tag style={{ border: "none" }} > #{tag} </Tag>)}
+                {props.postTags?.map(postTag => <Tag style={{ border: "none" }} > #{postTag.tags.name} </Tag>)}
             </Col>
         </Row>
         <Row>

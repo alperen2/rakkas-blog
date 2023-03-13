@@ -1,3 +1,4 @@
+import { supabase } from './db/db'
 
 type posts = Array<{
     image?: string,
@@ -91,3 +92,10 @@ export const user: user = {
     location: "İstanbul-Turkey",
     bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid omnis neque velit mollitia dolorum vero corporis ratione in officia, minus tempora! Blanditiis enim harum, alias possimus ullam vero ex fugiat?"
 }
+
+export async function getPosts() {
+    const {data, status} =  await supabase.from('posts').select();
+    console.log(data)
+    return data;
+}
+
